@@ -1,0 +1,63 @@
+---
+config:
+  theme: neo-dark
+  look: neo
+---
+classDiagram
+    class Difficolta {
+        <<enumeration>>
+        FACILE
+        INTERMEDIO
+        DIFFICILE
+    }
+    class tipoTalpa {
+        <<enumeration>>
+        BASIC
+        ORO
+        ARGENTO
+    }
+
+    class Gestore {
+        +faiUscireTalpa() 
+        +faiScomparireTalpa()
+        -durataGioco : Time
+        +impostaDifficolta(d:Difficolta) 
+        -numeroBucheTotali : int
+        +gestionePunteggi() 
+    }
+
+    class Talpa {
+        -tempoRientro : int
+        -frequenzaApparizione : int
+        -valorePunteggio : int
+        -isSchiacciata : boolean
+        +gestisciComportamento(t:tipoTalpa)
+        +assegnaPunti(t:tipoTalpa) 
+        
+    }
+
+    class Buca {
+        +gestisciColpoVuoto() 
+    }
+
+    class Giocatore {
+      -username:String
+        +gestisciMancataPressione() 
+    }
+
+    class Classifica {
+        +salvaClassifica() 
+    }
+
+    class Interfaccia {
+        +cambiaImmagineBuca() 
+        +impostaGraficaGioco() 
+        +rilevaColpo() 
+    }
+    Gestore "1" *-- "1..*" Buca 
+    Buca "1" o-- "0..1" Talpa
+    Gestore "1" o-- "1" Classifica 
+    Gestore "1" -- "1" Giocatore
+    Interfaccia "1" -- "1" Gestore 
+    Gestore ..> Difficolta 
+    Talpa ..> tipoTalpa
