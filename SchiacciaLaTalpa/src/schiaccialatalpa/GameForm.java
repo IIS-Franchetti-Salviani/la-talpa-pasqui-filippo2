@@ -7,6 +7,9 @@ package schiaccialatalpa;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import static schiaccialatalpa.tipoTalpa.ARGENTO;
+import static schiaccialatalpa.tipoTalpa.BASIC;
+import static schiaccialatalpa.tipoTalpa.ORO;
 
 /**
  *
@@ -15,12 +18,14 @@ import javax.swing.JLabel;
 public class GameForm extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GameForm.class.getName());
+    private JLabel[]buche;
     
-    /**
-     * Creates new form GameForm
-     */
+    
     public GameForm() {
         initComponents();
+        buche=new JLabel[]{lblBuca1,lblBuca2,lblBuca3,lblBuca4,lblBuca5,lblBuca6,lblBuca7,lblBuca8,lblBuca9};
+        Gestore g=new Gestore(this);
+        g.start();
     }
 
     /**
@@ -45,15 +50,16 @@ public class GameForm extends javax.swing.JFrame {
         lblBuca6 = new javax.swing.JLabel();
         lblBuca7 = new javax.swing.JLabel();
         lblBuca8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lblBuca9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
         jLabel2.setText("00-00");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
         jLabel11.setText("-");
@@ -65,7 +71,7 @@ public class GameForm extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
         jLabel13.setText("TIMER");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, -1, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setOpaque(false);
@@ -115,15 +121,18 @@ public class GameForm extends javax.swing.JFrame {
         lblBuca8.setText("jLabel10");
         jPanel1.add(lblBuca8);
 
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
-        jLabel9.setText("jLabel7");
-        jPanel1.add(jLabel9);
+        lblBuca9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBuca9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
+        lblBuca9.setText("jLabel7");
+        jPanel1.add(lblBuca9);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 420, 290));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/sfondoGame.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-180, -160, 980, 680));
+
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -159,7 +168,7 @@ public class GameForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblBuca1;
     private javax.swing.JLabel lblBuca2;
@@ -169,5 +178,55 @@ public class GameForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblBuca6;
     private javax.swing.JLabel lblBuca7;
     private javax.swing.JLabel lblBuca8;
+    private javax.swing.JLabel lblBuca9;
     // End of variables declaration//GEN-END:variables
-}
+
+    void resettaTutteLeBuche() {
+        for(JLabel buca : buche){
+            cambiaImmagineBuca(buca,"buca2.png");
+        }
+    }
+    public void cambiaImmagineBuca(JLabel label,String nomeFile){
+        try {
+            
+            
+                    ImageIcon icona = new ImageIcon(nomeFile);
+                    if (icona.getImageLoadStatus() == java.awt.MediaTracker.ERRORED) {
+                    System.out.println("File NON TROVATO alla radice: " + nomeFile);
+                    return;
+                    }
+                    // Adattiamo l'immagine ai pixel X e Y della label
+                    int w = label.getWidth() > 0 ? label.getWidth() : 200;
+                    int h = label.getHeight() > 0 ? label.getHeight() : 200;
+                    
+                    Image img = icona.getImage().getScaledInstance(w,h, Image.SCALE_SMOOTH);
+                    label.setIcon(new ImageIcon(img));
+                
+            } 
+                catch (Exception e) {
+                System.out.println("Errore: " + e.getMessage());
+            }
+        }
+    
+    
+        public void cambiaImmagineBuca(int ind,tipoTalpa tipo){
+        String nome="";
+        switch(tipo){
+            case ORO:
+                nome="talpa.png";
+                break;
+            case ARGENTO:
+                nome="talpa.png";
+                break;
+            case BASIC:
+                nome="talpa.png";
+                break;
+                
+                }
+                cambiaImmagineBuca(buche[ind],nome);
+            }
+    }
+    
+    
+    
+

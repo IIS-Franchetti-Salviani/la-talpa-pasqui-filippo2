@@ -12,12 +12,12 @@ import java.time.LocalTime;
  */
 public class Gestore extends Thread {
     private int durataGioco=30;
-    private int numBucheTot;
-    private boolean inCorso;
+    private int numBucheTot=9;
+    private boolean inCorso=true;
     private GameForm form;
 
-    public Gestore(boolean inCorso, GameForm form) {
-        this.inCorso = inCorso;
+    public Gestore( GameForm form) {
+        
         this.form = form;
     }
 
@@ -28,6 +28,7 @@ public class Gestore extends Thread {
             try{
                 faiUscireTalpa();
                 Thread.sleep(1000);
+                secondi++;
             }catch(InterruptedException e){
                 e.printStackTrace();
             }
@@ -37,8 +38,26 @@ public class Gestore extends Thread {
     
     
     
-    public void faiUscireTalpa(){}
-    public void faiScomparireTalpa(){}
+    public void faiUscireTalpa(){
+        int indiceBuca=(int)(Math.random()*numBucheTot);
+        tipoTalpa t = selezionaTipoCasuale();
+        
+        java.awt.EventQueue.invokeLater(() -> {
+            form.resettaTutteLeBuche();
+            form.cambiaImmagineBuca(indiceBuca, t);
+        });
+    }
+    public tipoTalpa selezionaTipoCasuale(){
+        double r=Math.random();
+        if(r<0.1){
+            return tipoTalpa.ORO;
+        }
+        if(r<0.3){
+            return tipoTalpa.ARGENTO;
+        }
+        return tipoTalpa.BASIC;
+        
+    }
     public void gestisciLivello(Livello l){}
     public void gestionePunteggi(){}
 }
