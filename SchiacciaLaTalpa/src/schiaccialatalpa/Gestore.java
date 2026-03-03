@@ -10,9 +10,32 @@ import java.time.LocalTime;
  *
  * @author pasqui.filippo
  */
-public class Gestore {
-    private LocalTime durataGioco;
+public class Gestore extends Thread {
+    private int durataGioco=30;
     private int numBucheTot;
+    private boolean inCorso;
+    private GameForm form;
+
+    public Gestore(boolean inCorso, GameForm form) {
+        this.inCorso = inCorso;
+        this.form = form;
+    }
+
+    @Override
+    public void run() {
+        int secondi=0;
+        while(inCorso && secondi<durataGioco){
+            try{
+                faiUscireTalpa();
+                Thread.sleep(1000);
+            }catch(InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    
+    
     
     public void faiUscireTalpa(){}
     public void faiScomparireTalpa(){}

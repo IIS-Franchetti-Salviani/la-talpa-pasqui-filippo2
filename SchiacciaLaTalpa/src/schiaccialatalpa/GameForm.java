@@ -38,14 +38,14 @@ public class GameForm extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblBuca1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblBuca2 = new javax.swing.JLabel();
+        lblBuca3 = new javax.swing.JLabel();
+        lblBuca4 = new javax.swing.JLabel();
+        lblBuca5 = new javax.swing.JLabel();
+        lblBuca6 = new javax.swing.JLabel();
+        lblBuca7 = new javax.swing.JLabel();
+        lblBuca8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,46 +79,46 @@ public class GameForm extends javax.swing.JFrame {
         lblBuca1.setPreferredSize(new java.awt.Dimension(200, 200));
         jPanel1.add(lblBuca1);
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
-        jLabel3.setText("jLabel3");
-        jPanel1.add(jLabel3);
+        lblBuca2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBuca2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
+        lblBuca2.setText("jLabel3");
+        jPanel1.add(lblBuca2);
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
-        jLabel5.setText("jLabel5");
-        jPanel1.add(jLabel5);
+        lblBuca3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBuca3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
+        lblBuca3.setText("jLabel5");
+        jPanel1.add(lblBuca3);
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        jPanel1.add(jLabel4);
+        lblBuca4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBuca4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
+        lblBuca4.setText("jLabel4");
+        jPanel1.add(lblBuca4);
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
-        jLabel6.setText("jLabel6");
-        jPanel1.add(jLabel6);
+        lblBuca5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBuca5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
+        lblBuca5.setText("jLabel6");
+        jPanel1.add(lblBuca5);
 
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
-        jLabel8.setText("jLabel8");
-        jPanel1.add(jLabel8);
+        lblBuca6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBuca6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
+        lblBuca6.setText("jLabel8");
+        jPanel1.add(lblBuca6);
+
+        lblBuca7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBuca7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
+        lblBuca7.setText("jLabel9");
+        jPanel1.add(lblBuca7);
+
+        lblBuca8.setBackground(new java.awt.Color(0, 0, 0));
+        lblBuca8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBuca8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
+        lblBuca8.setText("jLabel10");
+        jPanel1.add(lblBuca8);
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
-        jLabel9.setText("jLabel9");
+        jLabel9.setText("jLabel7");
         jPanel1.add(jLabel9);
-
-        jLabel10.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
-        jLabel10.setText("jLabel10");
-        jPanel1.add(jLabel10);
-
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
-        jLabel7.setText("jLabel7");
-        jPanel1.add(jLabel7);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 420, 290));
 
@@ -155,19 +155,19 @@ public class GameForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblBuca1;
+    private javax.swing.JLabel lblBuca2;
+    private javax.swing.JLabel lblBuca3;
+    private javax.swing.JLabel lblBuca4;
+    private javax.swing.JLabel lblBuca5;
+    private javax.swing.JLabel lblBuca6;
+    private javax.swing.JLabel lblBuca7;
+    private javax.swing.JLabel lblBuca8;
     // End of variables declaration//GEN-END:variables
 }
