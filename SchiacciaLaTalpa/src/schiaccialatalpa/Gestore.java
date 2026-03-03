@@ -4,10 +4,18 @@
  */
 package schiaccialatalpa;
 
+import java.time.LocalTime;
+
 /**
  *
  * @author pasqui.filippo
  */
 public class Gestore {
+    private LocalTime durataGioco;
+    private int numBucheTot;
     
+    public void faiUscireTalpa(){}
+    public void faiScomparireTalpa(){}
+    public void gestisciLivello(Livello l){}
+    public void gestionePunteggi(){}
 }

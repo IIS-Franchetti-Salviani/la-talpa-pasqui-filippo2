@@ -9,5 +9,5 @@ package schiaccialatalpa;
  * @author pasqui.filippo
  */
 public class Classifica {
-    
+    public void salvaClassifica(){}
 }

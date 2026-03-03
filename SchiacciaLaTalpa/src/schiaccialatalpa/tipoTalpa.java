@@ -9,5 +9,7 @@ package schiaccialatalpa;
  * @author pasqui.filippo
  */
 public enum tipoTalpa {
-    
+    BASIC,
+    ORO,
+    ARGENTO;
 }

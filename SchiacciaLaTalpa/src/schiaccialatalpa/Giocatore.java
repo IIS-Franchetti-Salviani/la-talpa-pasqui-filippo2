@@ -9,5 +9,9 @@ package schiaccialatalpa;
  * @author pasqui.filippo
  */
 public class Giocatore {
+    private String nome;
+    private int punteggio;
     
+    
+    public void gestisciMancataPressione(){}
 }

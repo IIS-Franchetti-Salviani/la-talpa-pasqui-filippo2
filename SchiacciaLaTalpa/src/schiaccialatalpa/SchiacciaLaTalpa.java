@@ -15,6 +15,8 @@ public class SchiacciaLaTalpa {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        HomeForm f =new HomeForm();
+        f.setVisible(true);
     }
     
 }

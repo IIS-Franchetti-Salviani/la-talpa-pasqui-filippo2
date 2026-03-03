@@ -4,10 +4,23 @@
  */
 package schiaccialatalpa;
 
+import java.time.LocalTime;
+
 /**
  *
  * @author pasqui.filippo
  */
 public class Talpa {
+    private LocalTime tempoRietro;
+    private int frequenzaApparizione;
+    private int valorePunteggio;
+    private boolean isSchiaccia;
     
+    
+    
+    
+    
+    
+    public void gestisciComportamento(tipoTalpa t){}
+    public void assegnaPunti(tipoTalpa t){}
 }

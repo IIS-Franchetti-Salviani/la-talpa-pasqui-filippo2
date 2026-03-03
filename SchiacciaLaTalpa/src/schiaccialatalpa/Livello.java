@@ -9,5 +9,7 @@ package schiaccialatalpa;
  * @author pasqui.filippo
  */
 public enum Livello {
-    
+    FACILE,
+    INTERMEDIO,
+    DIFFICILE;
 }
