@@ -4,8 +4,10 @@
  */
 package schiaccialatalpa;
 
+import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -19,12 +21,7 @@ public class HomeForm extends javax.swing.JFrame {
      * Creates new form HomeForm
      */
     public HomeForm() {
-        
-        ImageIcon icon =new ImageIcon("C:\\Users\\pasqui.filippo\\Desktop\\la-talpa-pasqui-filippo2\\SchiacciaLaTalpa\\src\\images");
-        JLabel label=new JLabel(icon);
-        background.add(label);
-        background.revalidate();
-        background.repaint();
+        initComponents();
     }
 
     /**
@@ -36,34 +33,38 @@ public class HomeForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        background = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        btnAvvia = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
-        background.setLayout(backgroundLayout);
-        backgroundLayout.setHorizontalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        backgroundLayout.setVerticalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jLabel2.setFont(new java.awt.Font("Ravie", 0, 48)); // NOI18N
+        jLabel2.setText("WHACK-A-MOLE");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 540, 140));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        btnAvvia.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
+        btnAvvia.setText("AVVIA");
+        btnAvvia.setBorder(new javax.swing.border.MatteBorder(null));
+        btnAvvia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvviaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAvvia, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 110, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/sfondo1.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -190, 720, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAvviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvviaActionPerformed
+        GameForm f2= new GameForm();
+        f2.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAvviaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -88,10 +89,13 @@ public class HomeForm extends javax.swing.JFrame {
 
         /* Create and display the form */
         
+        
         java.awt.EventQueue.invokeLater(() -> new HomeForm().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel background;
+    private javax.swing.JButton btnAvvia;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
