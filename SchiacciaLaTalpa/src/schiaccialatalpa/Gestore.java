@@ -27,8 +27,10 @@ public class Gestore extends Thread {
         while(inCorso && secondi<durataGioco){
             try{
                 faiUscireTalpa();
-                Thread.sleep(1000);
-                secondi++;
+                Thread.sleep(1500);
+                faiScomparireTalpa();
+                Thread.sleep(500);
+                secondi+=2;
             }catch(InterruptedException e){
                 e.printStackTrace();
             }
@@ -57,6 +59,11 @@ public class Gestore extends Thread {
         }
         return tipoTalpa.BASIC;
         
+    }
+    public void faiScomparireTalpa(){
+        java.awt.EventQueue.invokeLater(()->{
+            form.resettaTutteLeBuche();
+        });
     }
     public void gestisciLivello(Livello l){}
     public void gestionePunteggi(){}
