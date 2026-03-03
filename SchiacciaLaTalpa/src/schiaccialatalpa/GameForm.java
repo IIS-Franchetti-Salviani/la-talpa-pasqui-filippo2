@@ -4,6 +4,10 @@
  */
 package schiaccialatalpa;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Principale
@@ -11,7 +15,7 @@ package schiaccialatalpa;
 public class GameForm extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GameForm.class.getName());
-
+    
     /**
      * Creates new form GameForm
      */
@@ -28,18 +32,98 @@ public class GameForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel2 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblBuca1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
+        jLabel2.setText("00-00");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
+        jLabel11.setText("-");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 40, -1));
+
+        jLabel12.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
+        jLabel12.setText("PUNTEGGIO");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
+        jLabel13.setText("TIMER");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setOpaque(false);
+        jPanel1.setPreferredSize(new java.awt.Dimension(200, 200));
+        jPanel1.setLayout(new java.awt.GridLayout(3, 3));
+
+        lblBuca1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblBuca1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
+        lblBuca1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblBuca1.setMaximumSize(new java.awt.Dimension(200, 200));
+        lblBuca1.setPreferredSize(new java.awt.Dimension(200, 200));
+        jPanel1.add(lblBuca1);
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel1.add(jLabel3);
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        jPanel1.add(jLabel5);
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        jPanel1.add(jLabel4);
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
+        jLabel6.setText("jLabel6");
+        jPanel1.add(jLabel6);
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
+        jLabel8.setText("jLabel8");
+        jPanel1.add(jLabel8);
+
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
+        jLabel9.setText("jLabel9");
+        jPanel1.add(jLabel9);
+
+        jLabel10.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
+        jLabel10.setText("jLabel10");
+        jPanel1.add(jLabel10);
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/buca2.png"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        jPanel1.add(jLabel7);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 420, 290));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/sfondoGame.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-180, -160, 980, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -70,5 +154,20 @@ public class GameForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblBuca1;
     // End of variables declaration//GEN-END:variables
 }
