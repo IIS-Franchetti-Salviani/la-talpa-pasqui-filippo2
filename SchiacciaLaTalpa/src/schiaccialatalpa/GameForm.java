@@ -231,10 +231,10 @@ public class GameForm extends javax.swing.JFrame {
         String nome="";
         switch(tipo){
             case ORO:
-                nome="talpa.png";
+                nome="talpaOro1.png";
                 break;
             case ARGENTO:
-                nome="talpa.png";
+                nome="talpaSilver.png";
                 break;
             case BASIC:
                 nome="talpa.png";
