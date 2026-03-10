@@ -47,8 +47,8 @@ public class GameForm extends javax.swing.JFrame {
                 }
             });
         }
-        Gestore g=new Gestore(box,Livello.INTERMEDIO);
-        g.start();
+        this.g=new Gestore(box,Livello.INTERMEDIO);
+        this.g.start();
         avviaConsumatore();
         avviaCountdown();
     }
