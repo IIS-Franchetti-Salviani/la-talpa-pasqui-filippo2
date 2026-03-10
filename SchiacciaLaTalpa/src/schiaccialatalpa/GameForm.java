@@ -25,6 +25,9 @@ public class GameForm extends javax.swing.JFrame {
     private int punteggio=0;
     private tipoTalpa tipoAttivo;
     private Giocatore player;
+    private int tempoRimanente = 30;
+    private Timer timer;
+    private Gestore g;
     
     
     public GameForm() {
@@ -55,7 +58,7 @@ public class GameForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        lblTimer = new javax.swing.JLabel();
         lblPunti = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -75,13 +78,13 @@ public class GameForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
-        jLabel2.setText("00-00");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, -1, -1));
+        lblTimer.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
+        lblTimer.setText("00-00");
+        getContentPane().add(lblTimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, -1, -1));
 
         lblPunti.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
         lblPunti.setText("-");
-        getContentPane().add(lblPunti, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 40, -1));
+        getContentPane().add(lblPunti, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 90, -1));
 
         jLabel12.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
         jLabel12.setText("PUNTEGGIO");
@@ -184,7 +187,6 @@ public class GameForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblBuca1;
@@ -197,6 +199,7 @@ public class GameForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblBuca8;
     private javax.swing.JLabel lblBuca9;
     private javax.swing.JLabel lblPunti;
+    private javax.swing.JLabel lblTimer;
     // End of variables declaration//GEN-END:variables
 
     void resettaTutteLeBuche() {
@@ -300,6 +303,20 @@ public class GameForm extends javax.swing.JFrame {
            }
            
        }
+       private void avviaCountdown(){
+           timer=new Timer(1000,(e)->{
+               tempoRimanente--;
+               lblTimer.setText(tempoRimanente+"s");
+               
+               if(tempoRimanente<=0){
+                   timer.stop();
+                   g.interrupt();
+                   finePartita();
+               }
+           
+           });
+       } 
+       
 }
     
     
