@@ -13,5 +13,14 @@ public class Giocatore {
     private int punteggio;
     
     
-    public void gestisciMancataPressione(){}
+    public void aggiungiPunti(int p){
+        this.punteggio+=p;
+    }
+    
+    
+    public void gestisciMancataPressione(){
+        if(punteggio>=2){
+            punteggio-=2;
+        }
+    }
 }
