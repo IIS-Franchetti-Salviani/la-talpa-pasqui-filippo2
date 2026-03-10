@@ -36,6 +36,7 @@ public class GameForm extends javax.swing.JFrame {
             buche[i].addMouseListener(new java.awt.event.MouseAdapter(){
                 @Override
                 public void mouseClicked(java.awt.event.MouseEvent evt){
+                    System.out.println("Hai cliccato la buca: " + indiceFisso);
                     controllaColpito(indiceFisso);
                 }
             });
@@ -264,7 +265,7 @@ public class GameForm extends javax.swing.JFrame {
                         tipoAttivo=tipoTalpa.BASIC;
                     }else{
                         bucaAttiva=segnale%10;
-                        int indiceTipo=segnale%10;
+                        int indiceTipo=segnale/10;
                         if(indiceTipo>=tipoTalpa.values().length){
                             tipoAttivo=tipoTalpa.BASIC;
                         }else{
@@ -283,19 +284,21 @@ public class GameForm extends javax.swing.JFrame {
     }).start();
   }
        private void controllaColpito(int indiceCliccato){
-           if(indiceCliccato==bucaAttiva && tipoAttivo!=null){
+           System.out.println("Click su: " + indiceCliccato + " | Buca Attiva: " + bucaAttiva);
+           if(indiceCliccato==bucaAttiva && bucaAttiva!=-1){
                int p=Talpa.assegnaPunti(tipoAttivo);
+               player.aggiungiPunti(p);
+               lblPunti.setText(""+player.getPunteggio());
                bucaAttiva=-1;
+               tipoAttivo=null;
                resettaTutteLeBuche();
-        
                
-    
-               resettaTutteLeBuche();
            }else{
                int penalità=Buca.gestisciColpoVuoto();
                player.aggiungiPunti(penalità);
+               lblPunti.setText(""+player.getPunteggio());
            }
-           lblPunti.setText(""+punteggio);
+           
        }
 }
     
