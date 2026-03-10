@@ -50,6 +50,7 @@ public class GameForm extends javax.swing.JFrame {
         Gestore g=new Gestore(box,Livello.INTERMEDIO);
         g.start();
         avviaConsumatore();
+        avviaCountdown();
     }
 
     /**
@@ -82,8 +83,7 @@ public class GameForm extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTimer.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
-        lblTimer.setText("00-00");
-        getContentPane().add(lblTimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, -1, -1));
+        getContentPane().add(lblTimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 70, 30));
 
         lblPunti.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
         lblPunti.setText("-");
@@ -307,17 +307,18 @@ public class GameForm extends javax.swing.JFrame {
            
        }
        private void avviaCountdown(){
-           timer=new Timer(1000,(e)->{
+           timer=new javax.swing.Timer(1000,(e)->{
                tempoRimanente--;
                lblTimer.setText(tempoRimanente+"s");
                
                if(tempoRimanente<=0){
                    timer.stop();
-                   g.interrupt();
+                   
                    finePartita();
                }
            
            });
+           timer.start();
        } 
        private void finePartita(){
            g.interrupt();
