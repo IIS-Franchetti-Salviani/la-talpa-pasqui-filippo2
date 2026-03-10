@@ -33,13 +33,35 @@ public class HomeForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnEasy = new javax.swing.JButton();
+        btnHard = new javax.swing.JButton();
         btnClassifica = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        btnAvvia = new javax.swing.JButton();
+        btnMid = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnEasy.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
+        btnEasy.setText("easy");
+        btnEasy.setBorder(new javax.swing.border.MatteBorder(null));
+        btnEasy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEasyActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEasy, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 140, 40));
+
+        btnHard.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
+        btnHard.setText("hard");
+        btnHard.setBorder(new javax.swing.border.MatteBorder(null));
+        btnHard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHardActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnHard, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 140, 40));
 
         btnClassifica.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
         btnClassifica.setText("classfifica");
@@ -55,15 +77,15 @@ public class HomeForm extends javax.swing.JFrame {
         jLabel2.setText("WHACK-A-MOLE");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 540, 140));
 
-        btnAvvia.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
-        btnAvvia.setText("AVVIA");
-        btnAvvia.setBorder(new javax.swing.border.MatteBorder(null));
-        btnAvvia.addActionListener(new java.awt.event.ActionListener() {
+        btnMid.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
+        btnMid.setText("Medium");
+        btnMid.setBorder(new javax.swing.border.MatteBorder(null));
+        btnMid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAvviaActionPerformed(evt);
+                btnMidActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAvvia, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 140, 40));
+        getContentPane().add(btnMid, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 140, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/sfondo1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -190, 720, 620));
@@ -71,16 +93,22 @@ public class HomeForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAvviaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvviaActionPerformed
-        GameForm f2= new GameForm();
-        f2.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnAvviaActionPerformed
+    private void btnMidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMidActionPerformed
+        apriGioco(Livello.INTERMEDIO);
+    }//GEN-LAST:event_btnMidActionPerformed
 
     private void btnClassificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClassificaActionPerformed
        ClassificaForm cf= new ClassificaForm();
        cf.setVisible(true);
     }//GEN-LAST:event_btnClassificaActionPerformed
+
+    private void btnHardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHardActionPerformed
+        apriGioco(Livello.DIFFICILE);
+    }//GEN-LAST:event_btnHardActionPerformed
+
+    private void btnEasyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEasyActionPerformed
+        apriGioco(Livello.FACILE);
+    }//GEN-LAST:event_btnEasyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,9 +138,19 @@ public class HomeForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAvvia;
     private javax.swing.JButton btnClassifica;
+    private javax.swing.JButton btnEasy;
+    private javax.swing.JButton btnHard;
+    private javax.swing.JButton btnMid;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
+
+private void apriGioco(Livello lv){
+    GameForm f2= new GameForm();
+    f2.setVisible(true);
+    this.dispose();
+}
+
+
 }
