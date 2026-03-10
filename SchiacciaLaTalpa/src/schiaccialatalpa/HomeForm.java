@@ -33,12 +33,23 @@ public class HomeForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnClassifica = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnAvvia = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnClassifica.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
+        btnClassifica.setText("classfifica");
+        btnClassifica.setBorder(new javax.swing.border.MatteBorder(null));
+        btnClassifica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClassificaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnClassifica, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 140, 40));
 
         jLabel2.setFont(new java.awt.Font("Ravie", 0, 48)); // NOI18N
         jLabel2.setText("WHACK-A-MOLE");
@@ -52,7 +63,7 @@ public class HomeForm extends javax.swing.JFrame {
                 btnAvviaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAvvia, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 110, 40));
+        getContentPane().add(btnAvvia, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 140, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/sfondo1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -190, 720, 620));
@@ -65,6 +76,11 @@ public class HomeForm extends javax.swing.JFrame {
         f2.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAvviaActionPerformed
+
+    private void btnClassificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClassificaActionPerformed
+       ClassificaForm cf= new ClassificaForm();
+       cf.setVisible(true);
+    }//GEN-LAST:event_btnClassificaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -95,6 +111,7 @@ public class HomeForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvvia;
+    private javax.swing.JButton btnClassifica;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

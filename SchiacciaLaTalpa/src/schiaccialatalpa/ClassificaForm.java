@@ -20,6 +20,7 @@ public class ClassificaForm extends javax.swing.JFrame {
      */
     public ClassificaForm() {
         initComponents();
+        riempiTabella();
     }
 
     /**
@@ -33,6 +34,7 @@ public class ClassificaForm extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblClassifica = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
         btnHome = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -56,13 +58,20 @@ public class ClassificaForm extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 341, 194));
 
+        jLabel3.setFont(new java.awt.Font("Snap ITC", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("HOME");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 70, 30));
+
+        btnHome.setForeground(new java.awt.Color(255, 255, 255));
+        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/schiaccialatalpa/tronco2.png"))); // NOI18N
         btnHome.setText("HOME");
         btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHomeActionPerformed(evt);
             }
         });
-        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, -1, -1));
+        getContentPane().add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 120, 50));
 
         jLabel1.setFont(new java.awt.Font("Stencil", 0, 36)); // NOI18N
         jLabel1.setText("Classifica");
@@ -77,7 +86,9 @@ public class ClassificaForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        
+        this.dispose();
+        HomeForm h=new HomeForm();
+        h.setVisible(true);
     }//GEN-LAST:event_btnHomeActionPerformed
 
     /**
@@ -109,6 +120,7 @@ public class ClassificaForm extends javax.swing.JFrame {
     private javax.swing.JButton btnHome;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblClassifica;
     // End of variables declaration//GEN-END:variables
