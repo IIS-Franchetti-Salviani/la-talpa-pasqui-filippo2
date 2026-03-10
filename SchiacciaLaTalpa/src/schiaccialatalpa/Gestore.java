@@ -15,9 +15,10 @@ public class Gestore extends Thread {
     private int numBucheTot=9;
     private boolean inCorso=true;
     private GameForm form;
+    private IntBox box;
 
-    public Gestore( GameForm form) {
-        
+    public Gestore( GameForm form, IntBox box1) {
+        this.box=box1;
         this.form = form;
     }
 
@@ -26,28 +27,28 @@ public class Gestore extends Thread {
         int secondi=0;
         while(inCorso && secondi<durataGioco){
             try{
-                faiUscireTalpa();
+                int indice = (int) (Math.random() * 9);
+                box.scrivi(indice);
                 Thread.sleep(1500);
-                faiScomparireTalpa();
+                box.scrivi(-1);
                 Thread.sleep(500);
-                secondi+=2;
+                secondi++;
             }catch(InterruptedException e){
                 e.printStackTrace();
             }
         }
+        box.scrivi(-1);
+        System.out.println("GAME OVER - Thread Gestore terminato");
+    }
+    public void fermaGioco(){
+        this.inCorso=false;
     }
     
     
     
-    
     public void faiUscireTalpa(){
-        int indiceBuca=(int)(Math.random()*numBucheTot);
-        tipoTalpa t = selezionaTipoCasuale();
-        
-        java.awt.EventQueue.invokeLater(() -> {
-            form.resettaTutteLeBuche();
-            form.cambiaImmagineBuca(indiceBuca, t);
-        });
+      int indiceBuca=(int)(Math.random()*numBucheTot);
+      box.scrivi(indiceBuca);
     }
     public tipoTalpa selezionaTipoCasuale(){
         double r=Math.random();
@@ -60,11 +61,6 @@ public class Gestore extends Thread {
         return tipoTalpa.BASIC;
         
     }
-    public void faiScomparireTalpa(){
-        java.awt.EventQueue.invokeLater(()->{
-            form.resettaTutteLeBuche();
-        });
-    }
-    public void gestisciLivello(Livello l){}
-    public void gestionePunteggi(){}
+
+
 }

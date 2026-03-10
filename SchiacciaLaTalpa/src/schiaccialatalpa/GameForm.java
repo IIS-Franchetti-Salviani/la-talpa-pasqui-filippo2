@@ -7,6 +7,7 @@ package schiaccialatalpa;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.Timer;
 import static schiaccialatalpa.tipoTalpa.ARGENTO;
 import static schiaccialatalpa.tipoTalpa.BASIC;
 import static schiaccialatalpa.tipoTalpa.ORO;
@@ -19,13 +20,17 @@ public class GameForm extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GameForm.class.getName());
     private JLabel[]buche;
+    private IntBox box=new IntBox();
     
     
     public GameForm() {
         initComponents();
         buche=new JLabel[]{lblBuca1,lblBuca2,lblBuca3,lblBuca4,lblBuca5,lblBuca6,lblBuca7,lblBuca8,lblBuca9};
-        Gestore g=new Gestore(this);
+        
+        Gestore g=new Gestore(this,box);
         g.start();
+       
+         avviaConsumatore();
     }
 
     /**
@@ -225,6 +230,23 @@ public class GameForm extends javax.swing.JFrame {
                 }
                 cambiaImmagineBuca(buche[ind],nome);
             }
+       private void avviaConsumatore() {
+    new Thread(() -> {
+        while (true) {
+            // Questo thread resta in attesa sulla scatola senza bloccare la finestra
+            int segnale = box.leggi(); 
+            
+            // Usiamo invokeLater perché dobbiamo toccare la grafica
+            java.awt.EventQueue.invokeLater(() -> {
+                if (segnale == -1) {
+                    resettaTutteLeBuche();
+                } else {
+                    cambiaImmagineBuca(segnale, tipoTalpa.BASIC);
+                }
+            });
+        }
+    }).start();
+}
     }
     
     
