@@ -7,6 +7,7 @@ package schiaccialatalpa;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import static schiaccialatalpa.tipoTalpa.ARGENTO;
 import static schiaccialatalpa.tipoTalpa.BASIC;
@@ -28,11 +29,13 @@ public class GameForm extends javax.swing.JFrame {
     private int tempoRimanente = 30;
     private Timer timer;
     private Gestore g;
+    private HomeForm home;
     
     
     public GameForm() {
         initComponents();
         player=new Giocatore();
+        
         buche=new JLabel[]{lblBuca1,lblBuca2,lblBuca3,lblBuca4,lblBuca5,lblBuca6,lblBuca7,lblBuca8,lblBuca9};
         for(int i=0;i<buche.length;i++){
             int indiceFisso=i;
@@ -234,7 +237,7 @@ public class GameForm extends javax.swing.JFrame {
         String nome="";
         switch(tipo){
             case ORO:
-                nome="talpaOro1.png";
+                nome="talpaOro2.png";
                 break;
             case ARGENTO:
                 nome="talpaSilver.png";
@@ -316,7 +319,18 @@ public class GameForm extends javax.swing.JFrame {
            
            });
        } 
-       
+       private void finePartita(){
+           g.interrupt();
+           resettaTutteLeBuche();
+           String nome=JOptionPane.showInputDialog(this,
+                   "FINE GIOCO!\nPunteggio totale: " + player.getPunteggio()+"\nInserisci il tuo nome:");
+           if(nome!=null && !nome.trim().isEmpty()){
+               Classifica.salvaClassifica(nome,player.getPunteggio());
+           }
+           this.dispose();
+           home=new HomeForm();
+           home.setVisible(true);
+       }
 }
     
     
