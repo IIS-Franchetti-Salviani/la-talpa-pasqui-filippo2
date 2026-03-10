@@ -9,5 +9,7 @@ package schiaccialatalpa;
  * @author pasqui.filippo
  */
 public class Buca {
-   public void gestisciColpoVuoto(){} 
+   public static int gestisciColpoVuoto(){
+       return-5;
+   } 
 }
