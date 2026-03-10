@@ -46,10 +46,7 @@ public class Gestore extends Thread {
     
     
     
-    public void faiUscireTalpa(){
-      int indiceBuca=(int)(Math.random()*numBucheTot);
-      box.scrivi(indiceBuca);
-    }
+ 
     public tipoTalpa selezionaTipoCasuale(){
         double r=Math.random();
         if(r<0.1){

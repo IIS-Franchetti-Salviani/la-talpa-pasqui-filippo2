@@ -21,16 +21,25 @@ public class GameForm extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GameForm.class.getName());
     private JLabel[]buche;
     private IntBox box=new IntBox();
+    private int bucaAttiva=-1;
+    private int punteggio=0;
     
     
     public GameForm() {
         initComponents();
         buche=new JLabel[]{lblBuca1,lblBuca2,lblBuca3,lblBuca4,lblBuca5,lblBuca6,lblBuca7,lblBuca8,lblBuca9};
-        
+        for(int i=0;i<buche.lenght;i++){
+            int indiceFisso=i;
+            buche[i].addMouseListener(new java.awt.event.MouseAdapter(){
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent evt){
+                    controllaColpito(indiceFisso);
+                }
+            });
+        }
         Gestore g=new Gestore(this,box);
         g.start();
-       
-         avviaConsumatore();
+        avviaConsumatore();
     }
 
     /**
@@ -240,7 +249,9 @@ public class GameForm extends javax.swing.JFrame {
             java.awt.EventQueue.invokeLater(() -> {
                 if (segnale == -1) {
                     resettaTutteLeBuche();
+                    bucaAttiva=-1;
                 } else {
+                    bucaAttiva=segnale;
                     cambiaImmagineBuca(segnale, tipoTalpa.BASIC);
                 }
             });
