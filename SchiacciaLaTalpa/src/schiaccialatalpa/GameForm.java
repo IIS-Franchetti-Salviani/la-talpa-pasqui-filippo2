@@ -28,7 +28,7 @@ public class GameForm extends javax.swing.JFrame {
     public GameForm() {
         initComponents();
         buche=new JLabel[]{lblBuca1,lblBuca2,lblBuca3,lblBuca4,lblBuca5,lblBuca6,lblBuca7,lblBuca8,lblBuca9};
-        for(int i=0;i<buche.lenght;i++){
+        for(int i=0;i<buche.length;i++){
             int indiceFisso=i;
             buche[i].addMouseListener(new java.awt.event.MouseAdapter(){
                 @Override
@@ -52,7 +52,7 @@ public class GameForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        lblPunti = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -75,9 +75,9 @@ public class GameForm extends javax.swing.JFrame {
         jLabel2.setText("00-00");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
-        jLabel11.setText("-");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 40, -1));
+        lblPunti.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
+        lblPunti.setText("-");
+        getContentPane().add(lblPunti, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 40, -1));
 
         jLabel12.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
         jLabel12.setText("PUNTEGGIO");
@@ -178,7 +178,6 @@ public class GameForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
@@ -193,6 +192,7 @@ public class GameForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblBuca7;
     private javax.swing.JLabel lblBuca8;
     private javax.swing.JLabel lblBuca9;
+    private javax.swing.JLabel lblPunti;
     // End of variables declaration//GEN-END:variables
 
     void resettaTutteLeBuche() {
@@ -257,8 +257,16 @@ public class GameForm extends javax.swing.JFrame {
             });
         }
     }).start();
+  }
+       private void controllaColpito(int indiceCliccato){
+           if(indiceCliccato==bucaAttiva){
+               punteggio+=10;
+               lblPunti.setText(""+punteggio);
+               bucaAttiva=-1;
+               resettaTutteLeBuche();
+           }
+       }
 }
-    }
     
     
     
