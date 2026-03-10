@@ -23,6 +23,7 @@ public class GameForm extends javax.swing.JFrame {
     private IntBox box=new IntBox();
     private int bucaAttiva=-1;
     private int punteggio=0;
+    private tipoTalpa tipoAttivo;
     
     
     public GameForm() {
@@ -37,7 +38,7 @@ public class GameForm extends javax.swing.JFrame {
                 }
             });
         }
-        Gestore g=new Gestore(this,box);
+        Gestore g=new Gestore(box,);
         g.start();
         avviaConsumatore();
     }
@@ -242,17 +243,20 @@ public class GameForm extends javax.swing.JFrame {
        private void avviaConsumatore() {
     new Thread(() -> {
         while (true) {
-            // Questo thread resta in attesa sulla scatola senza bloccare la finestra
+           
             int segnale = box.leggi(); 
             
-            // Usiamo invokeLater perché dobbiamo toccare la grafica
+           
             java.awt.EventQueue.invokeLater(() -> {
                 if (segnale == -1) {
                     resettaTutteLeBuche();
                     bucaAttiva=-1;
+                    tipoAttivo=null;
                 } else {
-                    bucaAttiva=segnale;
-                    cambiaImmagineBuca(segnale, tipoTalpa.BASIC);
+                    bucaAttiva=segnale%10;
+                    int indiceTipo=segnale%10;
+                    tipoAttivo=tipoTalpa.values()[indiceTipo];
+                    cambiaImmagineBuca(segnale, tipoAttivo);
                 }
             });
         }

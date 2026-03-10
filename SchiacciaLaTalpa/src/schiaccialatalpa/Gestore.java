@@ -16,10 +16,16 @@ public class Gestore extends Thread {
     private boolean inCorso=true;
     private GameForm form;
     private IntBox box;
+    private Livello lvl;
+    
+    private int tempoVisibile;
+    private int pausaTraTalpe;
 
-    public Gestore( GameForm form, IntBox box1) {
+    public Gestore( IntBox box1,Livello l) {
         this.box=box1;
-        this.form = form;
+        this.lvl=l;
+        impostaParametriLivello(l);
+        
     }
 
     @Override
@@ -28,10 +34,17 @@ public class Gestore extends Thread {
         while(inCorso && secondi<durataGioco){
             try{
                 int indice = (int) (Math.random() * 9);
-                box.scrivi(indice);
-                Thread.sleep(1500);
+                tipoTalpa tipo=selezionaTipoCasuale();
+                
+                int codiceInvio=indice+(tipo.ordinal()*10);
+                
+                box.scrivi(codiceInvio);
+                
+                Thread.sleep(tempoVisibile);
+                
                 box.scrivi(-1);
-                Thread.sleep(500);
+                
+                Thread.sleep(pausaTraTalpe);
                 secondi++;
             }catch(InterruptedException e){
                 e.printStackTrace();
@@ -44,7 +57,22 @@ public class Gestore extends Thread {
         this.inCorso=false;
     }
     
-    
+    public void impostaParametriLivello(Livello l){
+        switch(l){
+            case FACILE:
+                tempoVisibile=2000;
+                pausaTraTalpe=1000;
+                break;
+            case INTERMEDIO:
+                tempoVisibile=1200;
+                pausaTraTalpe=600;
+                break;
+            case DIFFICILE:
+                tempoVisibile=800;
+                pausaTraTalpe=400;
+                break;
+        }
+    }
     
  
     public tipoTalpa selezionaTipoCasuale(){
