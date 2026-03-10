@@ -24,6 +24,7 @@ public class GameForm extends javax.swing.JFrame {
     private int bucaAttiva=-1;
     private int punteggio=0;
     private tipoTalpa tipoAttivo;
+    private Giocatore player;
     
     
     public GameForm() {
@@ -263,12 +264,19 @@ public class GameForm extends javax.swing.JFrame {
     }).start();
   }
        private void controllaColpito(int indiceCliccato){
-           if(indiceCliccato==bucaAttiva){
-               punteggio+=10;
-               lblPunti.setText(""+punteggio);
+           if(indiceCliccato==bucaAttiva && tipoAttivo!=null){
+               int p=Talpa.assegnaPunti(tipoAttivo);
                bucaAttiva=-1;
                resettaTutteLeBuche();
+        
+               
+    
+               resettaTutteLeBuche();
+           }else{
+               int penalità=Buca.gestisciColpoVuoto();
+               player.aggiungiPunti(penalità);
            }
+           lblPunti.setText(""+punteggio);
        }
 }
     
