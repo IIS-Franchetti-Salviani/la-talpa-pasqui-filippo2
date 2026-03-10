@@ -16,6 +16,10 @@ public class Giocatore {
     public void aggiungiPunti(int p){
         this.punteggio+=p;
     }
+
+    public int getPunteggio() {
+        return punteggio;
+    }
     
     
     public void gestisciMancataPressione(){

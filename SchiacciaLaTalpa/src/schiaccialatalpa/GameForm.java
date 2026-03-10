@@ -29,6 +29,7 @@ public class GameForm extends javax.swing.JFrame {
     
     public GameForm() {
         initComponents();
+        player=new Giocatore();
         buche=new JLabel[]{lblBuca1,lblBuca2,lblBuca3,lblBuca4,lblBuca5,lblBuca6,lblBuca7,lblBuca8,lblBuca9};
         for(int i=0;i<buche.length;i++){
             int indiceFisso=i;
@@ -39,7 +40,7 @@ public class GameForm extends javax.swing.JFrame {
                 }
             });
         }
-        Gestore g=new Gestore(box,);
+        Gestore g=new Gestore(box,Livello.INTERMEDIO);
         g.start();
         avviaConsumatore();
     }
@@ -250,6 +251,10 @@ public class GameForm extends javax.swing.JFrame {
            
             java.awt.EventQueue.invokeLater(() -> {
                 if (segnale == -1) {
+                    if(bucaAttiva!=-1){
+                        player.gestisciMancataPressione();
+                        lblPunti.setText(""+player.getPunteggio());
+                    }
                     resettaTutteLeBuche();
                     bucaAttiva=-1;
                     tipoAttivo=null;
