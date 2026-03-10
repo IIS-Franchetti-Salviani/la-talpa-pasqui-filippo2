@@ -22,5 +22,13 @@ public class Talpa {
     
     
     public void gestisciComportamento(tipoTalpa t){}
-    public void assegnaPunti(tipoTalpa t){}
+    public static int  assegnaPunti(tipoTalpa t){
+        switch(t){
+            case ORO: return 50;
+            case ARGENTO: return 20;
+            case BASIC: return 10;
+            default:return 0;
+        }
+    
+    }
 }
