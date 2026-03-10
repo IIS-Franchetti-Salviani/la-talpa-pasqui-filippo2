@@ -259,10 +259,24 @@ public class GameForm extends javax.swing.JFrame {
                     bucaAttiva=-1;
                     tipoAttivo=null;
                 } else {
-                    bucaAttiva=segnale%10;
-                    int indiceTipo=segnale%10;
-                    tipoAttivo=tipoTalpa.values()[indiceTipo];
-                    cambiaImmagineBuca(segnale, tipoAttivo);
+                    if(segnale<10){
+                        bucaAttiva=segnale;
+                        tipoAttivo=tipoTalpa.BASIC;
+                    }else{
+                        bucaAttiva=segnale%10;
+                        int indiceTipo=segnale%10;
+                        if(indiceTipo>=tipoTalpa.values().length){
+                            tipoAttivo=tipoTalpa.BASIC;
+                        }else{
+                            tipoAttivo=tipoTalpa.values()[indiceTipo];
+                        }
+                    }
+                    
+                    if(bucaAttiva>=0&&bucaAttiva<buche.length){
+                        cambiaImmagineBuca(bucaAttiva, tipoAttivo);
+                    }
+                   
+                    
                 }
             });
         }
