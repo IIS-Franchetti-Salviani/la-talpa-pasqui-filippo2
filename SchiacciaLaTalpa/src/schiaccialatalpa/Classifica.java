@@ -52,7 +52,11 @@ public class Classifica {
             System.err.println("Errore nella lettura della classifica: " + e.getMessage());
         }
         
-        
+        record.sort((a,b)->{
+            int puntiA=Integer.parseInt(a[1]);
+            int puntiB=Integer.parseInt(b[1]);
+            return Integer.compare(puntiB, puntiA);
+        });
         return record;
     }
 }
