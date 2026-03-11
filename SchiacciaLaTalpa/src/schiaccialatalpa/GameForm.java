@@ -32,7 +32,7 @@ public class GameForm extends javax.swing.JFrame {
     private HomeForm home;
     
     
-    public GameForm() {
+    public GameForm(Livello lv) {
         initComponents();
         player=new Giocatore();
         
@@ -47,7 +47,7 @@ public class GameForm extends javax.swing.JFrame {
                 }
             });
         }
-        this.g=new Gestore(box,Livello.INTERMEDIO);
+        this.g=new Gestore(box,lv);
         this.g.start();
         avviaConsumatore();
         avviaCountdown();
@@ -183,7 +183,7 @@ public class GameForm extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new GameForm().setVisible(true));
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -321,8 +321,15 @@ public class GameForm extends javax.swing.JFrame {
            timer.start();
        } 
        private void finePartita(){
-           g.interrupt();
+           
+           if(timer!=null){
+               timer.stop();
+           }
+           if(this.g!=null){
+               g.fermaGioco();
+           }
            resettaTutteLeBuche();
+           this.bucaAttiva=-1;
            String nome=JOptionPane.showInputDialog(this,
                    "FINE GIOCO!\nPunteggio totale: " + player.getPunteggio()+"\nInserisci il tuo nome:");
            if(nome!=null && !nome.trim().isEmpty()){

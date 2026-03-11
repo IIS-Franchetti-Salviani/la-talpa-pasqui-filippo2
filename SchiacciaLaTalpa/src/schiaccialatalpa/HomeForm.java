@@ -147,7 +147,7 @@ public class HomeForm extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 private void apriGioco(Livello lv){
-    GameForm f2= new GameForm();
+    GameForm f2= new GameForm(lv);
     f2.setVisible(true);
     this.dispose();
 }
