@@ -55,6 +55,7 @@ public class Gestore extends Thread {
     }
     public void fermaGioco(){
         this.inCorso=false;
+        this.interrupt();
     }
     
     public void impostaParametriLivello(Livello l){
